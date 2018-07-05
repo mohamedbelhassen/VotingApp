@@ -8,15 +8,27 @@
     android:background="#404040">
 
     <TextView
-            android:id="@+id/tvWelcome"
+        android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="92dp"
         android:text="New Text"
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:onClick="goToAct"
+        android:text="Change PAssword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 </android.support.constraint.ConstraintLayout>
