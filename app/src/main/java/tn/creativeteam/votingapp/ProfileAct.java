@@ -24,5 +24,10 @@ public class ProfileAct extends AppCompatActivity {
             Intent i= new Intent(this,ChangePasswordAct.class);
             startActivity(i);
         }
+
+        if(v.getId()==R.id.button4){
+            Intent i= new Intent(this,VotingRate.class);
+            startActivity(i);
+        }
     }
 }

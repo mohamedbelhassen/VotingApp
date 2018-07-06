@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileAct" />
-        <activity android:name=".ChangePasswordAct"></activity>
+        <activity android:name=".ChangePasswordAct" />
+        <activity android:name=".VotingRate"></activity>
     </application>
 
 </manifest>
