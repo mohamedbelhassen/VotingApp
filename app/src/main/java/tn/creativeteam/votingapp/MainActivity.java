@@ -25,21 +25,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //In Android 6 and above, we need to add the following runtime permission check
-        requestSmsPermission();
+        //In Android 6 and above, we need to add the following runtime permissions check
+        requestSmsReceivePermission();
+        requestSmsSendPermission();
 
         etU=(EditText)findViewById(R.id.etUsername);
         etP=(EditText)findViewById(R.id.etPassword);
-
     }
 
-    private void requestSmsPermission() {
+    private void requestSmsReceivePermission() {
         String permission = Manifest.permission.RECEIVE_SMS;
         int grant = ContextCompat.checkSelfPermission(this, permission);
         if ( grant != PackageManager.PERMISSION_GRANTED) {
             String[] permission_list = new String[1];
             permission_list[0] = permission;
             ActivityCompat.requestPermissions(this, permission_list, 1);
+        }
+    }
+
+    private void requestSmsSendPermission() {
+        String permission = Manifest.permission.SEND_SMS;
+        int grant = ContextCompat.checkSelfPermission(this, permission);
+        if ( grant != PackageManager.PERMISSION_GRANTED) {
+            String[] permission_list = new String[1];
+            permission_list[0] = permission;
+            ActivityCompat.requestPermissions(this, permission_list, 2);
+
         }
     }
 
@@ -53,7 +64,14 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Log.i("Permission", "SMS_RECEIVE permission was NOT granted.");
             }
+        }
 
+        if(requestCode == 2){
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.i("Permission", "SEND_SMS permission has now been granted. Showing result.");
+            } else {
+                Log.i("Permission", "SEND_SMS permission was NOT granted.");
+            }
         }
     }
 
